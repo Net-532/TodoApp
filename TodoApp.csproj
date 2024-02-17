@@ -8,4 +8,12 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="assets\images\header.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\images\header.png" />
+  </ItemGroup>
+
 </Project>
