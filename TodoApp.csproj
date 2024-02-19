@@ -10,6 +10,33 @@
 
   <ItemGroup>
     <None Remove="assets\images\header.png" />
+    <None Remove="assets\images\icon1.png" />
+    <None Remove="assets\images\icon2.png" />
+    <None Remove="assets\images\icon3.png" />
+    <None Remove="assets\images\icon4.png" />
+    <None Remove="assets\images\icon5.png" />
+    <None Remove="assets\images\icon6.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\images\icon1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\icon2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\icon3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\icon4.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\icon5.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\icon6.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
