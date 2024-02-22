@@ -22,10 +22,13 @@
                     </Border.Background>
                 </Border>
                 <StackPanel Margin="20 20">
-                    <TextBlock Style="{StaticResource title}">Sign in</TextBlock>
-                    <TextBox x:Name="loginTxt" Style="{StaticResource input}" Grid.Row="0" Grid.Column="1">Login</TextBox>
-                    <PasswordBox x:Name="passwordTxt"  Style="{StaticResource input}" Grid.Row="1" Grid.Column="1"></PasswordBox>
-                    <Button x:Name="loginButton" Style="{StaticResource primary-button}" Margin="0 20 0 0" Click="loginButton_Click">Log in</Button>
+                    <TextBlock Style="{StaticResource Title}">Sign in</TextBlock>
+                    <Grid>
+                        <TextBlock x:Name="LoginPlaceholder" Style="{StaticResource Placeholder}" Text="Login" MouseDown="LoginPlaceholder_MouseDown"></TextBlock>
+                        <TextBox x:Name="LoginTxt" Style="{StaticResource Input}" TextChanged="LoginTxt_TextChanged"></TextBox>
+                     </Grid> 
+                    <PasswordBox x:Name="PasswordTxt"  Style="{StaticResource Input}"></PasswordBox>
+                    <Button x:Name="LoginButton" Style="{StaticResource PrimaryButton}" Margin="0 20 0 0" Click="loginButton_Click">Log in</Button>
                 </StackPanel>
             </StackPanel>
         </Border>
