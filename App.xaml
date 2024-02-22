@@ -50,7 +50,7 @@
 
         <Style x:Key="NavigationPanel" TargetType="Grid">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=HamburgerButon,Path=IsChecked}" Value="False">
+                <DataTrigger Binding="{Binding ElementName=HamburgerButton,Path=IsChecked}" Value="False">
                     <DataTrigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
@@ -92,7 +92,7 @@
                 <Style TargetType="TextBlock">
                     <Setter Property="Width" Value="100"></Setter>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=HamburgerButon,Path=IsChecked}" Value="False">
+                        <DataTrigger Binding="{Binding ElementName=HamburgerButton,Path=IsChecked}" Value="False">
                             <DataTrigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>

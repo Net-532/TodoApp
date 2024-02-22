@@ -13,7 +13,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" Content="Toggle" x:Name="HamburgerButon" IsChecked="False"></CheckBox>
+            <CheckBox Grid.Row="0" Content="Toggle" x:Name="HamburgerButton" IsChecked="False"></CheckBox>
             <ListView Grid.Row="1"  Style="{StaticResource NavigationBar}">
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
