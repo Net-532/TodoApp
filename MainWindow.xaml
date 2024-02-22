@@ -7,47 +7,49 @@
         Title="Щоденник завдань"
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen" Height="500">
-    <Window.Resources>
-        <Storyboard x:Key="menuOpen">
-            <DoubleAnimation Duration="0:0:0.300" 
-             Storyboard.TargetProperty="(FrameworkElement.Width)"
-             Storyboard.TargetName="mainMenu"
-             To="200" />
-       </Storyboard>
-       </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="Button.Click" SourceName="hamburgerButon">
-            <EventTrigger.Actions>
-                <BeginStoryboard Storyboard="{StaticResource menuOpen}">
-                </BeginStoryboard>
-            </EventTrigger.Actions>
-        </EventTrigger>
-    </Window.Triggers>
     <DockPanel Background="#F3F4F8">
-        <Grid x:Name="mainMenu" DockPanel.Dock="Left" Width="94" Background="#FBFAFF">
+        <Grid x:Name="MainMenu" Style="{StaticResource NavigationPanel}" DockPanel.Dock="Left" Width="200" Background="#FBFAFF">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" Content="Toggle" x:Name="hamburgerButon"></CheckBox>
-            <ListView Grid.Row="1">
-                <ListViewItem Style="{StaticResource nav-menu-item}">
-                    <Image Source="assets/images/icon6.png"></Image>
+            <CheckBox Grid.Row="0" Content="Toggle" x:Name="HamburgerButon" IsChecked="False"></CheckBox>
+            <ListView Grid.Row="1"  Style="{StaticResource NavigationBar}">
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/images/icon6.png"></Image>
+                        <TextBlock Text="Dashboard"></TextBlock>
+                    </StackPanel>
                 </ListViewItem>
-                <ListViewItem Style="{StaticResource nav-menu-item}">
-                    <Image Source="assets/images/icon1.png"></Image>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/images/icon1.png"></Image>
+                        <TextBlock Text="Timeline"></TextBlock>
+                    </StackPanel>
                 </ListViewItem>
-                <ListViewItem Style="{StaticResource nav-menu-item}">
-                    <Image Source="assets/images/icon2.png"></Image>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/images/icon2.png"></Image>
+                        <TextBlock Text="Tasks"></TextBlock>
+                    </StackPanel>
                 </ListViewItem>
-                <ListViewItem Style="{StaticResource nav-menu-item}">
-                    <Image Source="assets/images/icon3.png"></Image>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/images/icon3.png"></Image>
+                        <TextBlock Text="Settings"></TextBlock>
+                    </StackPanel>
                 </ListViewItem>
-                <ListViewItem Style="{StaticResource nav-menu-item}">
-                    <Image Source="assets/images/icon4.png"></Image>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/images/icon4.png"></Image>
+                        <TextBlock Text="Messages"></TextBlock>
+                    </StackPanel>
                 </ListViewItem>
-                <ListViewItem Style="{StaticResource nav-menu-item}">
-                    <Image Source="assets/images/icon5.png"></Image>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/images/icon5.png"></Image>
+                        <TextBlock Text="Files"></TextBlock>
+                    </StackPanel>
                 </ListViewItem>
             </ListView>
         </Grid>
