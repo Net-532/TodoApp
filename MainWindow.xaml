@@ -13,7 +13,18 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" Content="Toggle" x:Name="HamburgerButton" IsChecked="False"></CheckBox>
+            <CheckBox Grid.Row="0" Content="Toggle" x:Name="HamburgerButton" IsChecked="False">
+                <CheckBox.Template>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Image x:Name="icon" Source="assets/images/icon4.png"></Image>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="icon" Property="Source" Value="assets/images/icon6.png"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </CheckBox.Template>
+            </CheckBox>
             <ListView Grid.Row="1"  Style="{StaticResource NavigationBar}">
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
