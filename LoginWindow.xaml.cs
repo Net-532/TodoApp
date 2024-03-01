@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,35 @@ namespace TodoApp
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
+            String connenctionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=todoapp;Integrated Security=SSPI;";
+
+            SqlConnection conn = new SqlConnection(connenctionString);
+
+            try
+            {
+                conn.Open();
+                // query
+                SqlCommand dbCommand = new SqlCommand("SELECT COUNT(*) FROM dbo.users where username=@name and password=@pass", conn);
+              //  dbCommand.CommandText = 
+                dbCommand.Parameters.Add("@name", SqlDbType.VarChar);
+                dbCommand.Parameters["@name"].Value = LoginTxt.Text;
+                dbCommand.Parameters.Add("@pass", SqlDbType.VarChar);
+                dbCommand.Parameters["@pass"].Value = PasswordTxt.Password;
+                // dbCommand.CommandText = "SELECT COUNT(*) FROM dbo.users";
+                // dbCommand.ExecuteNonQuery(); insert/delete/update
+                int usercont = (int)dbCommand.ExecuteScalar();
+                if(usercont == 0) {
+                    throw new ApplicationException("User not found");
+                }
+                // dbCommand.ExecuteReader();
+                Console.WriteLine("Connected");
+            }
+            catch(Exception ex)
+            {
+                throw new ApplicationException(ex.Message);
+            }
+            finally { conn.Close(); }
+
             new MainWindow().Show();
             Close();
         }
