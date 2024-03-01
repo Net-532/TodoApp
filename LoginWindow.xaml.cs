@@ -9,42 +9,24 @@ namespace TodoApp
 {
     public partial class LoginWindow : Window
     {
+        private AuthenticationService authenticationService;
         public LoginWindow()
         {
             InitializeComponent();
+            authenticationService = new AuthenticationService();
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            string connenctionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=todoapp;Integrated Security=SSPI;";
-
-            DbConnection conn = new SqlConnection(connenctionString);
             try
             {
-                conn.Open();
-                DbCommand dbCommand = new SqlCommand();
-                dbCommand.Connection = conn;
-                dbCommand.CommandText = "SELECT COUNT(*) FROM dbo.users WHERE username=@name AND password=@pass";
-                dbCommand.Parameters.Add(new SqlParameter("@name", LoginTxt.Text));
-                dbCommand.Parameters.Add(new SqlParameter("@pass", PasswordTxt.Password));
-                var userCount = (int)dbCommand.ExecuteScalar();
-                if (userCount == 0)
-                {
-                    MessageBox.Show("User not found");
-                }
-                else
-                {
-                    MessageBox.Show("User is not found");
-                }
-
-                MessageBox.Show("Connected");
+                authenticationService.Authenticate(LoginTxt.Text, PasswordTxt.Password);
             }
-            catch (Exception ex)
+            catch (AuthenticationException ex)
             {
                 MessageBox.Show(ex.Message);
+                return;
             }
-            finally { conn.Close(); }
-
             new MainWindow().Show();
             Close();
         }
