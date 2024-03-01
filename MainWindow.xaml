@@ -8,15 +8,15 @@
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen" Height="500">
     <DockPanel Background="#F3F4F8">
-        <Grid x:Name="MainMenu" Style="{StaticResource NavigationPanel}" DockPanel.Dock="Left" Width="200" Background="#FBFAFF">
+        <Grid x:Name="MainMenu" Style="{StaticResource NavigationPanel}" Width="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Row="0" Content="Toggle" x:Name="HamburgerButton" IsChecked="False">
+            <CheckBox Grid.Row="0" x:Name="HamburgerButton" IsChecked="False">
                 <CheckBox.Template>
                     <ControlTemplate TargetType="CheckBox">
-                        <Image x:Name="icon" Source="assets/images/icon4.png"></Image>
+                        <Image Height="16" Width="16" x:Name="icon" Source="assets/images/icon4.png"></Image>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="icon" Property="Source" Value="assets/images/icon6.png"></Setter>
@@ -25,8 +25,8 @@
                     </ControlTemplate>
                 </CheckBox.Template>
             </CheckBox>
-            <ListView Grid.Row="1"  Style="{StaticResource NavigationBar}">
-                <ListViewItem>
+            <ListView Grid.Row="1" Style="{StaticResource NavigationBar}" BorderThickness="0">
+                <ListViewItem >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="assets/images/icon6.png"></Image>
                         <TextBlock Text="Dashboard"></TextBlock>

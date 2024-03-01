@@ -49,6 +49,17 @@
         </Style>
 
         <Style x:Key="NavigationPanel" TargetType="Grid">
+            <Style.Resources>
+                <Style TargetType="Grid">
+                    <Setter Property="DockPanel.Dock" Value="Left"></Setter>
+                    <Setter Property="Background" Value="#FFFF"></Setter>
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+                    <Setter Property="Margin" Value="0 0 35 0"></Setter>
+                    <Setter Property="Cursor" Value="Hand"></Setter>
+                </Style>
+            </Style.Resources>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=HamburgerButton,Path=IsChecked}" Value="False">
                     <DataTrigger.EnterActions>
