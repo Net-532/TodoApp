@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace TodoApp
 {
@@ -72,12 +59,12 @@ namespace TodoApp
             // Якщо текст не введено
             if (loginTextIsEmpty)
             {
-                // показуємо пейсхолдер "Enter username"
+                // показуємо плейсхолдер "Enter username"
                 this.LoginPlaceholder.Visibility = Visibility.Visible;
             }
             else
             {
-                // скриваємо пейсхолдер "Enter username"
+                // скриваємо плейсхолдер "Enter username"
                 this.LoginPlaceholder.Visibility = Visibility.Hidden;
             }
         }
