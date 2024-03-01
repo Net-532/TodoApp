@@ -1,5 +1,5 @@
 using System;
-using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,32 +16,32 @@ namespace TodoApp
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            String connenctionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=todoapp;Integrated Security=SSPI;";
+            string connenctionString = @"Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=todoapp;Integrated Security=SSPI;";
 
-            SqlConnection conn = new SqlConnection(connenctionString);
-
+            DbConnection conn = new SqlConnection(connenctionString);
             try
             {
                 conn.Open();
-                // query
-                SqlCommand dbCommand = new SqlCommand("SELECT COUNT(*) FROM dbo.users where username=@name and password=@pass", conn);
-              //  dbCommand.CommandText = 
-                dbCommand.Parameters.Add("@name", SqlDbType.VarChar);
-                dbCommand.Parameters["@name"].Value = LoginTxt.Text;
-                dbCommand.Parameters.Add("@pass", SqlDbType.VarChar);
-                dbCommand.Parameters["@pass"].Value = PasswordTxt.Password;
-                // dbCommand.CommandText = "SELECT COUNT(*) FROM dbo.users";
-                // dbCommand.ExecuteNonQuery(); insert/delete/update
-                int usercont = (int)dbCommand.ExecuteScalar();
-                if(usercont == 0) {
-                    throw new ApplicationException("User not found");
+                DbCommand dbCommand = new SqlCommand();
+                dbCommand.Connection = conn;
+                dbCommand.CommandText = "SELECT COUNT(*) FROM dbo.users WHERE username=@name AND password=@pass";
+                dbCommand.Parameters.Add(new SqlParameter("@name", LoginTxt.Text));
+                dbCommand.Parameters.Add(new SqlParameter("@pass", PasswordTxt.Password));
+                var userCount = (int)dbCommand.ExecuteScalar();
+                if (userCount == 0)
+                {
+                    MessageBox.Show("User not found");
                 }
-                // dbCommand.ExecuteReader();
-                Console.WriteLine("Connected");
+                else
+                {
+                    MessageBox.Show("User is not found");
+                }
+
+                MessageBox.Show("Connected");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new ApplicationException(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally { conn.Close(); }
 
