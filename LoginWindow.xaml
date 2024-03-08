@@ -14,7 +14,7 @@
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Border Grid.Row="1" Grid.Column="1" Width="450" MaxHeight="480" CornerRadius="10" Background="#FFFF">
+        <Border Grid.Row="1" Grid.Column="1" Width="450" MaxHeight="520" CornerRadius="10" Background="#FFFF">
             <StackPanel>
                 <Border CornerRadius="10 10 0 0" Height="200">
                     <Border.Background>
@@ -23,6 +23,7 @@
                 </Border>
                 <StackPanel Margin="20 20">
                     <TextBlock Style="{StaticResource Title}">Sign in</TextBlock>
+                    <Label Style="{StaticResource ErrorMessage}" Content="{Binding Message}"></Label>
                     <Grid>
                         <TextBlock x:Name="LoginPlaceholder" Style="{StaticResource Placeholder}" Text="Login" MouseDown="LoginPlaceholder_MouseDown"></TextBlock>
                         <TextBox x:Name="LoginTxt" Style="{StaticResource Input}" TextChanged="LoginTxt_TextChanged"></TextBox>

@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Windows;
@@ -9,10 +10,15 @@ namespace TodoApp
 {
     public partial class LoginWindow : Window
     {
+        LoginError loginError;
+
         private AuthenticationService authenticationService;
+
         public LoginWindow()
         {
             InitializeComponent();
+            loginError = new LoginError();
+            DataContext = loginError;
             authenticationService = new AuthenticationService();
         }
 
@@ -24,7 +30,7 @@ namespace TodoApp
             }
             catch (AuthenticationException ex)
             {
-                MessageBox.Show(ex.Message);
+                loginError.Message = ex.Message;
                 return;
             }
             new MainWindow().Show();
@@ -55,4 +61,25 @@ namespace TodoApp
         }
     }
 
+    class LoginError: INotifyPropertyChanged
+    {
+ 
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private string _message;
+
+        public string Message
+        {
+            get { return _message; }
+            set {
+                _message = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Message"));
+            }
+        }
+
+        public LoginError()
+        {
+        }
+        
+    }
 }

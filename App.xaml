@@ -8,6 +8,12 @@
             <Setter Property="FontSize" Value="28"></Setter>
         </Style>
 
+        <Style x:Key="ErrorMessage" TargetType="Label">
+            <Setter Property="FontWeight" Value="Light"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="Foreground" Value="Red"></Setter>
+        </Style>
+        
         <Style x:Key="Placeholder" TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Foreground" Value="LightGray"></Setter>
@@ -21,8 +27,8 @@
             <Setter Property="Height" Value="35"></Setter>
             <Setter Property="Margin" Value="0 20"></Setter>
             <Setter Property="Foreground" Value="#768396"></Setter>
-            <Setter Property ="VerticalContentAlignment" Value="Center"></Setter>
-            <Setter Property ="Padding" Value="5 0"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Padding" Value="5 0"></Setter>
         </Style>
 
         <Style x:Key="PrimaryButton" TargetType="Button">
@@ -85,7 +91,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
- 
+
         <Style x:Key="NavigationBar" TargetType="ListView">
             <Style.Resources>
                 <Style TargetType="ListViewItem">
