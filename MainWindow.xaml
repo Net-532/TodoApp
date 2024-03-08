@@ -7,7 +7,7 @@
         Title="Щоденник завдань"
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen" Height="500">
-    <DockPanel Background="#F3F4F8">
+    <DockPanel x:Name="MainPanel"  Background="#F3F4F8">
         <Grid x:Name="MainMenu" Style="{StaticResource NavigationPanel}" Width="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -56,10 +56,10 @@
                         <TextBlock Text="Messages"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem>
+                <ListViewItem Selected="ListViewItem_Selected">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="assets/images/icon5.png"></Image>
-                        <TextBlock Text="Files"></TextBlock>
+                        <TextBlock Text="Users"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
             </ListView>
@@ -67,23 +67,25 @@
         <StackPanel DockPanel.Dock="Top" Height="76" Background="#FFFFFF">
             <TextBlock>Header</TextBlock>
         </StackPanel>
-        <Grid x:Name="layoutGrid" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1">
-                <Label Content="Яке завдання зробимо ?" HorizontalAlignment="Center" FontSize="18" Margin="0  0 0 20"/>
-                <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                    <TextBox x:Name="taskInput" VerticalAlignment="Center" Height="26" Width="280" FontSize="14" Margin="0, 0, 20, 0" TextChanged="taskInput_TextChanged"/>
-                    <Button x:Name="addTaskButton" Content="Додати" Height="26" Width="57" Click="addTaskButton_Click" IsEnabled="False"/>
+        <ContentControl x:Name="DynamicContent">
+            <Grid x:Name="layoutGrid" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1">
+                    <Label Content="Яке завдання зробимо ?" HorizontalAlignment="Center" FontSize="18" Margin="0  0 0 20"/>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
+                        <TextBox x:Name="taskInput" VerticalAlignment="Center" Height="26" Width="280" FontSize="14" Margin="0, 0, 20, 0" TextChanged="taskInput_TextChanged"/>
+                        <Button x:Name="addTaskButton" Content="Додати" Height="26" Width="57" Click="addTaskButton_Click" IsEnabled="False"/>
+                    </StackPanel>
+                    <StackPanel x:Name="tasksPanel" HorizontalAlignment="Left"></StackPanel>
                 </StackPanel>
-                <StackPanel x:Name="tasksPanel" HorizontalAlignment="Left"></StackPanel>
-            </StackPanel>
-        </Grid>
+            </Grid>
+        </ContentControl>
     </DockPanel>
 </Window>

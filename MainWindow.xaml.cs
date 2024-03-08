@@ -23,7 +23,12 @@ namespace TodoApp
 
         private void taskInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            this.addTaskButton.IsEnabled = !string.IsNullOrWhiteSpace(taskInput.Text);
+            addTaskButton.IsEnabled = !string.IsNullOrWhiteSpace(taskInput.Text);
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            DynamicContent.Content = new UsersWindow();
         }
     }
 }

@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="TodoApp.UsersWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TodoApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <StackPanel DockPanel.Dock ="Top" Orientation="Horizontal" HorizontalAlignment="Right" Margin="20">
+            <TextBox VerticalAlignment="Center" Style="{StaticResource Input}" Margin="0 0 20 0">Введіть імя користувача</TextBox>
+            <Button Style="{StaticResource PrimaryButton}" Width="100">Пошук</Button>
+        </StackPanel>
+        <Grid>
+            <DataGrid></DataGrid>
+        </Grid>
+    </DockPanel>    
+</UserControl>
