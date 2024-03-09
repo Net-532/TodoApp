@@ -71,6 +71,11 @@ namespace TodoApp
             _dataSet.Clear();
             _dataAdapter.Fill(_dataSet);
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            _dataSet.RejectChanges();
+        }
     }
 
 }

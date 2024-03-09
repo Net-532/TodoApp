@@ -13,7 +13,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="SaveButton" HorizontalAlignment="Left" Style="{StaticResource PrimaryButton}" Width="100" Click="SaveButton_Click">Зберегти</Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button x:Name="SaveButton" Style="{StaticResource PrimaryButton}" Width="100" Click="SaveButton_Click">Зберегти</Button>
+                <Button x:Name="CancelButton" Style="{StaticResource PrimaryButton}" Width="100" Margin="20 0 0 0" Click="CancelButton_Click">Відмінити</Button>
+            </StackPanel>
             <StackPanel Grid.Column ="1" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBox x:Name="searchBox" VerticalAlignment="Center" Style="{StaticResource Input}" Width="200" Margin="0 0 20 0"></TextBox>
                 <Button x:Name="SearchButton" Style="{StaticResource PrimaryButton}" Width="100" Click="SearchButton_Click">Пошук</Button>
