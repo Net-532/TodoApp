@@ -15,8 +15,8 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="SaveButton" HorizontalAlignment="Left" Style="{StaticResource PrimaryButton}" Width="100" Click="SaveButton_Click">Зберегти</Button>
             <StackPanel Grid.Column ="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBox VerticalAlignment="Center" Style="{StaticResource Input}" Width="200" Margin="0 0 20 0">Введіть імя користувача</TextBox>
-                <Button Style="{StaticResource PrimaryButton}" Width="100">Пошук</Button>
+                <TextBox x:Name="searchBox" VerticalAlignment="Center" Style="{StaticResource Input}" Width="200" Margin="0 0 20 0"></TextBox>
+                <Button x:Name="SearchButton" Style="{StaticResource PrimaryButton}" Width="100" Click="SearchButton_Click">Пошук</Button>
             </StackPanel>
         </Grid>
         <Grid Margin="0 20 0 0">
