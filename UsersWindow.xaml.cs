@@ -53,11 +53,12 @@ namespace TodoApp
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             _dataAdapter.Update(_dataSet);
+            MessageBox.Show("Saved successfully!");
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            FilterUserByUsernameFromDataView();
+            FilterUserByUsernameFromDb();
         }
 
         private void FilterUserByUsernameFromDataView()
@@ -75,6 +76,22 @@ namespace TodoApp
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             _dataSet.RejectChanges();
+            MessageBox.Show("Changes reverted!");
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView? selectedItem = UsersGrid.SelectedItem as DataRowView;
+            if (selectedItem == null)
+            {
+                return;
+            }
+
+            var index = _dataSet.Tables[0].Rows.IndexOf(selectedItem.Row);
+            if (index != -1)
+            {
+                _dataSet.Tables[0].Rows[index].Delete();
+            }
         }
     }
 

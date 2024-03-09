@@ -23,7 +23,29 @@
             </StackPanel>
         </Grid>
         <Grid Margin="0 20 0 0">
-            <DataGrid x:Name="UsersGrid"></DataGrid>
+            <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="1*">
+                        <DataGridTextColumn.Header>Username</DataGridTextColumn.Header>
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="username"></Binding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="1*">
+                        <DataGridTextColumn.Header>Password</DataGridTextColumn.Header>
+                        <DataGridTextColumn.Binding>
+                            <Binding Path="password"></Binding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="DeleteButton" Click="DeleteButton_Click">Delete</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </DockPanel>
 </UserControl>
