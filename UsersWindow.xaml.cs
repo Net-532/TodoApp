@@ -24,22 +24,7 @@ namespace TodoApp
             _dataAdapter = new SqlDataAdapter();
             _dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM users WHERE username LIKE @username", _dbConnection);
             _dataAdapter.SelectCommand.Parameters.AddWithValue("@username", $"%{searchBox.Text}%");
-
-            SqlCommand updateCommand = new SqlCommand("UPDATE users SET password=@password WHERE id=@id", _dbConnection);
-            updateCommand.Parameters.Add("@username", SqlDbType.NVarChar, 255, "username");
-            updateCommand.Parameters.Add("@password", SqlDbType.Int, 5, "password");
-            updateCommand.Parameters.Add("@id", SqlDbType.Int, 5, "id");
-            _dataAdapter.UpdateCommand = updateCommand;
-
-            SqlCommand insertCommand = new SqlCommand("INSERT INTO users (username, password) VALUES (@username, @password)", _dbConnection);
-            insertCommand.Parameters.Add("@username", SqlDbType.NVarChar, 255, "username");
-            insertCommand.Parameters.Add("@password", SqlDbType.NVarChar, 255, "password");
-            _dataAdapter.InsertCommand = insertCommand;
-
-            SqlCommand deleteCommand = new SqlCommand("DELETE FROM users WHERE id=@id", _dbConnection);
-            deleteCommand.Parameters.Add("@id", SqlDbType.Int, 5, "id");
-            _dataAdapter.DeleteCommand = deleteCommand;
-
+            new SqlCommandBuilder(_dataAdapter);
             _dataSet = new DataSet("usersDs");
             _dataAdapter.Fill(_dataSet);
             UsersGrid.ItemsSource = _dataSet.Tables[0].DefaultView;
